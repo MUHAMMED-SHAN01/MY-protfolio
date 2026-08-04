@@ -139,7 +139,7 @@ h3{
     border: 2px solid yellow;
     padding: 60px 60px 40px 40px;
     display: grid;
-    grid-template-columns: 100px 100px 100px;
+    grid-template-columns: 100px 100px 100px 100px;
     grid-template-rows: auto auto auto;
     row-gap: 40px;
     column-gap: 40px;
@@ -179,6 +179,18 @@ h3{
 .project-item{
     border: 3px solid yellow;
     min-height: 60vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: medium;
+    font-weight: bolder;
+
+}
+
+.project-menu a{
+    text-decoration: none;
+    color: white;
 }
 
 #contact{
