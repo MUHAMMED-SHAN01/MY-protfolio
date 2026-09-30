@@ -3,12 +3,91 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Location-Based Food Product product discovery case study by Muhammed Shan.">
-<title>Location-Based Food Product | Muhammed Shan</title>
+<meta name="description" content="A product discovery case study exploring food-offer discovery, merchant needs, marketplace dynamics, and offer accuracy.">
+<title>Location-Based Food Offer Platform | Muhammed Shan</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../stylee.css">
+<style>
+.food-offer-study .case-study-header { padding-bottom: 2.5rem; }
+.food-offer-study .case-study-meta { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.food-offer-study .case-study-meta .meta-block { text-align: left; }
+.food-offer-study .meta-block span { font-size: 0.78rem; }
+.food-offer-study .case-study-intro { max-width: 68ch; }
+.food-offer-study .case-study-toc { margin: 1.4rem 0 0.5rem; }
+.food-offer-study .toc-label { margin-bottom: 0.5rem; }
+.food-offer-study .case-study-toc a { display: inline-block; padding: 0.25rem 0; }
+.food-offer-study .case-study-section { padding: clamp(1.8rem, 4vw, 2.7rem) 0; }
+.food-offer-study .section-header { align-items: flex-start; margin-bottom: 1.15rem; }
+.food-offer-study .section-number { flex: 0 0 2.25rem; }
+.food-offer-study .case-study-note { max-width: 75ch; font-style: normal; }
+.food-offer-study .case-study-highlight { max-width: none; }
+.food-offer-study .personal-quote { margin: 1.2rem 0; padding: 1.2rem 1.3rem; border-left: 3px solid var(--color-accent); background: #f5f8fc; color: var(--color-text); font-family: var(--font-display); font-size: clamp(1.25rem, 2.5vw, 1.65rem); line-height: 1.5; }
+.food-offer-study .personal-context { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr); gap: 1.25rem; align-items: start; }
+.food-offer-study .side-by-side { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; margin-top: 1.2rem; }
+.food-offer-study .side-panel { padding: 1.2rem; border: 1px solid var(--color-border); border-radius: var(--radius-sm); background: var(--color-surface); }
+.food-offer-study .side-panel h3 { margin: 0 0 0.6rem; font-size: 0.85rem; letter-spacing: 0.06em; }
+.food-offer-study .side-panel p { margin: 0.3rem 0; color: var(--color-text); }
+.food-offer-study .flow-list { display: grid; gap: 0; max-width: 540px; margin: 1.2rem auto 0; list-style: none; text-align: center; }
+.food-offer-study .flow-list li { padding: 0.7rem 1rem; border: 1px solid var(--color-border); border-radius: 8px; background: var(--color-surface); color: var(--color-text); font-size: 0.86rem; font-weight: 700; letter-spacing: 0.04em; }
+.food-offer-study .flow-list li { position: relative; }
+.food-offer-study .flow-list li:not(:last-child) { margin-bottom: 1.6rem; }
+.food-offer-study .flow-list li:not(:last-child)::after { position: absolute; bottom: -1.45rem; left: 50%; color: var(--color-accent); content: "↓"; line-height: 1.2; transform: translateX(-50%); }
+.food-offer-study .offer-example { display: grid; grid-template-columns: 1fr auto; gap: 0.4rem 1rem; max-width: 540px; margin-top: 1.1rem; padding: 1.25rem; border: 1px dashed #9aabc0; border-radius: var(--radius-sm); background: #f7f9fc; }
+.food-offer-study .offer-example h3 { grid-column: 1; margin: 0; }
+.food-offer-study .offer-price { grid-column: 2; grid-row: 1 / span 2; align-self: center; color: var(--color-accent); font-family: var(--font-display); font-size: 1.75rem; font-weight: 700; }
+.food-offer-study .offer-example p { grid-column: 1; margin: 0; font-size: 0.9rem; }
+.food-offer-study .offer-example .label { grid-column: 1 / -1; margin-bottom: 0; }
+.food-offer-study .offer-types { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.75rem; margin-top: 1rem; }
+.food-offer-study .offer-type { padding: 0.85rem; border-top: 2px solid var(--color-highlight); background: #f7f9fc; color: var(--color-text); font-size: 0.88rem; font-weight: 600; }
+.food-offer-study .merchant-count { display: inline-block; margin: 0.15rem 0 0.75rem; color: var(--color-accent); font-family: var(--font-display); font-size: 1.6rem; font-weight: 700; }
+.food-offer-study .merchant-insights { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.food-offer-study .hypothesis-flow { counter-reset: model-step; max-width: 650px; margin: 1.2rem 0 0; padding: 0; list-style: none; }
+.food-offer-study .hypothesis-flow li { counter-increment: model-step; position: relative; margin: 0 0 0.55rem; padding: 0.75rem 1rem 0.75rem 3rem; border: 1px solid var(--color-border); border-radius: 8px; background: var(--color-surface); color: var(--color-text); font-weight: 600; }
+.food-offer-study .hypothesis-flow li::before { position: absolute; left: 1rem; color: var(--color-accent); content: counter(model-step, decimal-leading-zero); font-size: 0.78rem; font-weight: 700; }
+.food-offer-study .marketplace-loop { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); align-items: center; gap: 1rem; margin: 1.2rem 0; padding: 1.2rem; border-block: 1px solid var(--color-border); text-align: center; }
+.food-offer-study .marketplace-loop strong { color: var(--color-text); font-size: clamp(1rem, 2vw, 1.25rem); }
+.food-offer-study .marketplace-loop span { color: var(--color-accent); font-size: 1.8rem; font-weight: 700; }
+.food-offer-study .accuracy-flow { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.65rem; margin: 1.1rem 0; }
+.food-offer-study .accuracy-step { padding: 0.85rem; border: 1px solid var(--color-border); border-radius: 8px; background: var(--color-surface); color: var(--color-text); text-align: center; font-weight: 700; }
+.food-offer-study .accuracy-step span { display: block; margin-top: 0.2rem; color: var(--color-text-light); font-size: 0.78rem; font-weight: 500; }
+.food-offer-study .stale-offer { padding: 1.1rem; border-left: 3px solid #a95b4c; background: #fbf5f3; }
+.food-offer-study .stale-offer strong { color: #713c34; }
+.food-offer-study .mvp-block { max-width: none; }
+.food-offer-study .mvp-block h3 { font-size: 0.82rem; letter-spacing: 0.07em; }
+.food-offer-study .recognition { display: flex; align-items: flex-start; gap: 1rem; padding: 1.1rem 1.2rem; border: 1px solid var(--color-border); border-radius: var(--radius-sm); background: #f7f9fc; }
+.food-offer-study .recognition-mark { flex: 0 0 auto; color: var(--color-accent); font-family: var(--font-display); font-size: 1.5rem; font-weight: 700; }
+.food-offer-study .recognition p { margin: 0; }
+.food-offer-study .risk-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.food-offer-study .risk-card { padding: 1rem; border-radius: 8px; }
+.food-offer-study .fact-validation h3 { margin-bottom: 0.8rem; }
+.food-offer-study .fact-validation ul { margin-top: 0; }
+.food-offer-study .final-hypothesis { margin-top: 1rem; padding: clamp(1.2rem, 3vw, 2rem); border-left: 3px solid var(--color-accent); background: #f5f8fc; }
+.food-offer-study .final-hypothesis blockquote { max-width: 70ch; color: var(--color-text); font-family: var(--font-display); font-size: clamp(1.2rem, 2.2vw, 1.5rem); line-height: 1.65; }
+.food-offer-study .final-hypothesis p { margin: 0.9rem 0 0; color: var(--color-accent); font-weight: 700; }
+.food-offer-study .final-takeaway blockquote { max-width: 72ch; }
+.food-offer-study .case-study-pager-current { max-width: 30%; color: var(--color-text-light); font-size: 0.9rem; }
+.food-offer-study .case-study-pager-current span { display: block; color: var(--color-text-light); font-size: 0.76rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; }
+@media (max-width: 760px) {
+  .food-offer-study .case-study-meta { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .food-offer-study .personal-context,
+  .food-offer-study .side-by-side,
+  .food-offer-study .merchant-insights,
+  .food-offer-study .risk-grid { grid-template-columns: 1fr; }
+  .food-offer-study .offer-types { grid-template-columns: 1fr; }
+  .food-offer-study .case-study-pager-current { max-width: 100%; }
+}
+@media (max-width: 480px) {
+  .food-offer-study .case-study-meta { gap: 0.55rem; }
+  .food-offer-study .meta-block { padding: 0.7rem; }
+  .food-offer-study .accuracy-flow { grid-template-columns: 1fr; }
+  .food-offer-study .accuracy-step:not(:last-child)::after { display: block; height: 1rem; margin-bottom: -1.3rem; transform: translateY(1.1rem); color: var(--color-accent); content: "↓"; }
+  .food-offer-study .marketplace-loop { grid-template-columns: 1fr; gap: 0.35rem; }
+  .food-offer-study .marketplace-loop span { transform: rotate(90deg); }
+  .food-offer-study .recognition { gap: 0.7rem; }
+}
+</style>
 </head>
 <body>
 <a href="#main" class="skip-link">Skip to main content</a>
@@ -23,24 +102,244 @@
     </ul>
   </nav>
 </header>
-<main id="main" class="case-study-main">
+<main id="main" class="case-study-main food-offer-study">
   <a class="case-study-back" href="../../index.html#case-studies">← Back to Case Studies</a>
-  <div class="case-study-header">
+  <header class="case-study-header">
     <div class="case-study-kicker">CASE STUDY 03</div>
-    <h1>Location-Based Food Product</h1>
-    <p class="case-study-subtitle">Product Discovery Case Study</p>
-    <p class="case-study-notice">Case study details have not been provided yet. Replace these prompts with verified project information when ready.</p>
-  </div>
+    <h1>Location-Based Food Offer Platform</h1>
+    <p class="case-study-subtitle">From Finding Food Offers to Understanding a Two-Sided Marketplace</p>
+    <div class="case-study-meta" aria-label="Case study focus areas">
+      <div class="meta-block"><span>Product Discovery</span></div>
+      <div class="meta-block"><span>Customer &amp; Merchant Research</span></div>
+      <div class="meta-block"><span>Marketplace Thinking</span></div>
+      <div class="meta-block"><span>MVP Planning</span></div>
+    </div>
+    <div class="case-study-meta-row">
+      <div class="meta-inline"><strong>Status:</strong> Concept / Discovery</div>
+      <div class="meta-inline"><strong>Type:</strong> Location-Based Marketplace / Food Discovery</div>
+    </div>
+    <p class="case-study-intro">Focus: Problem Discovery · User Needs · Merchant Needs · Business Model · Validation</p>
+  </header>
+
+  <nav class="case-study-toc" aria-label="Case study sections">
+    <div class="toc-label">On this page</div>
+    <ul>
+      <li><a href="#starting-point">Starting Point</a></li>
+      <li><a href="#assumption">Initial Assumption</a></li>
+      <li><a href="#marketplace">Marketplace</a></li>
+      <li><a href="#merchant-research">Merchant Research</a></li>
+      <li><a href="#accuracy">Offer Accuracy</a></li>
+      <li><a href="#mvp-limitation">MVP Limitation</a></li>
+      <li><a href="#validation">Future Validation</a></li>
+      <li><a href="#takeaway">PM Takeaway</a></li>
+    </ul>
+  </nav>
+
   <div class="case-study-content">
-    <section class="case-study-section"><h2>Context &amp; Problem</h2><p>Placeholder: describe the context, food-related need, and location-specific problem this project investigated.</p></section>
-    <section class="case-study-section"><h2>People &amp; Research</h2><p>Placeholder: identify the intended users and add the research methods and findings that were actually completed.</p></section>
-    <section class="case-study-section"><h2>Opportunity</h2><p>Placeholder: explain the opportunity identified and the evidence behind it.</p></section>
-    <section class="case-study-section"><h2>Product Decisions</h2><p>Placeholder: add the proposed product direction, key requirements, and tradeoffs that informed the concept.</p></section>
-    <section class="case-study-section"><h2>Solution &amp; Validation</h2><p>Placeholder: describe the solution and any validation plan or results. Separate planned work from completed work.</p></section>
-    <section class="case-study-section"><h2>Constraints &amp; Learning</h2><p>Placeholder: document technical or operational considerations, limitations, and learning from the project.</p></section>
+    <section id="starting-point" class="case-study-section">
+      <div class="section-header"><span class="section-number">01</span><h2>The Starting Point</h2></div>
+      <div class="personal-context">
+        <div>
+          <p>While travelling in Thiruvananthapuram with friends, we wanted good-value food within a limited budget. A mandi might cost around ₹250–₹300 at one restaurant, while another might offer a mandi or combo around ₹150–₹200.</p>
+          <blockquote class="personal-quote">“Where can I find a good food offer near me right now?”</blockquote>
+          <p>The problem was not necessarily that offers did not exist. I searched Instagram for food offers in Trivandrum, but many results were older videos or reels. Finding a current offer that matched our budget and location was difficult.</p>
+          <p>The practical alternatives were to search individual restaurants, ask people, or choose somewhere nearby.</p>
+        </div>
+        <aside class="case-study-highlight">
+          <span class="label">PERSONAL OBSERVATION</span>
+          <p>Discovering an offer and reaching an open business were separate problems. After seeing an offer around Nedumangad, I later struggled to find the original reel, locate the shop, and on one occasion found it closed.</p>
+        </aside>
+      </div>
+      <div class="case-study-highlight"><span class="label">INITIAL PROBLEM</span><p>Students and young people looking for affordable food may struggle to discover relevant, currently available offers near their location through channels such as social media.</p></div>
+    </section>
+
+    <section id="assumption" class="case-study-section">
+      <div class="section-header"><span class="section-number">02</span><h2>The Initial Assumption</h2></div>
+      <div class="case-study-highlight"><span class="label">ASSUMPTION</span><p>“People need a platform to find food offers near them.”</p></div>
+      <p>The first idea was a location-based platform showing nearby food offers. That assumption needed exploration on both sides of the marketplace.</p>
+      <div class="side-by-side">
+        <div class="side-panel"><h3>USER SIDE</h3><p><strong>Students / young people</strong></p><p>Discover nearby offers → Compare → Filter → Choose → Navigate</p><p class="case-study-note">An initial target segment, not a statistically validated market segment.</p></div>
+        <div class="side-panel"><h3>MERCHANT SIDE</h3><p><strong>Food businesses</strong></p><p>Publish offers → Attract customers → Promote existing offers → Potentially sell remaining food</p></div>
+      </div>
+      <h3 style="margin:1.5rem 0 0.5rem">Proposed product flow</h3>
+      <ol class="flow-list" aria-label="Proposed user flow from location to navigation">
+        <li>Current location</li><li>Nearby offers</li><li>Filter</li><li>Choose</li><li>Offer details</li><li>Navigate</li>
+      </ol>
+    </section>
+
+    <section id="offer-experience" class="case-study-section">
+      <div class="section-header"><span class="section-number">03</span><h2>Offer Discovery</h2></div>
+      <p>Offers could appear together, with food categories and a budget or price filter to help people find a relevant option.</p>
+      <div class="offer-example" aria-label="Illustrative offer example, not a real business or live offer">
+        <span class="label">ILLUSTRATIVE EXAMPLE · NOT A REAL OFFER</span>
+        <h3>Chicken Mandi</h3><div class="offer-price">₹180</div>
+        <p>Original price: ₹250 · XYZ Restaurant · 1.8 km away · Category: Mandi</p>
+      </div>
+      <div class="offer-types" aria-label="Possible offer types">
+        <div class="offer-type">Regular / Current Offer</div>
+        <div class="offer-type">Today's Special</div>
+        <div class="offer-type">Limited / Remaining Food</div>
+      </div>
+      <p class="case-study-note">These were proposed product possibilities, not features tested in a live application.</p>
+    </section>
+
+    <section id="merchant-research" class="case-study-section">
+      <div class="section-header"><span class="section-number">04</span><h2>Merchant Discovery</h2></div>
+      <span class="merchant-count">Approximately 5 food businesses</span>
+      <p>Conversations included smaller and larger food businesses. Responses differed, and merchant needs were not identical.</p>
+      <div class="insight-grid merchant-insights">
+        <article class="insight-card"><span class="card-label">MORE CUSTOMERS</span><p>Some businesses were interested in attracting nearby customers, including through exclusive offers.</p></article>
+        <article class="insight-card"><span class="card-label">PROMOTE EXISTING OFFERS</span><p>Some wanted to show offers they already provided to more potential customers.</p></article>
+        <article class="insight-card"><span class="card-label">REMAINING FOOD</span><p>Some businesses were more concerned about selling remaining food.</p></article>
+      </div>
+      <div class="case-study-highlight"><span class="label">MERCHANT INSIGHT</span><p>One larger restaurant said leftover food was not its main problem: it could estimate demand, prepare more if needed, and handle remaining food through existing arrangements. Its more relevant interest was attracting customers.</p></div>
+      <p class="case-study-note">Different businesses can have different problems even when they sell similar products.</p>
+    </section>
+
+    <section id="business-model" class="case-study-section">
+      <div class="section-header"><span class="section-number">05</span><h2>Business Model Hypothesis</h2></div>
+      <div class="mvp-block"><span class="label">MERCHANT-PROPOSED HYPOTHESIS</span><h3>NOT VALIDATED THROUGH A LIVE EXPERIMENT</h3>
+        <ol class="hypothesis-flow">
+          <li>Offer an exclusive discount, such as 10%, 15%, or 20%</li>
+          <li>Promote the offer through the platform or group</li>
+          <li>Track customers attributed to the offer over about one month</li>
+          <li>Demonstrate customer value to the business</li>
+          <li>Explore potential paid membership</li>
+        </ol>
+      </div>
+      <p>This approach was suggested by one shop owner as a way to test whether the platform could generate value. It is not evidence of willingness to pay.</p>
+    </section>
+
+    <section id="marketplace" class="case-study-section">
+      <div class="section-header"><span class="section-number">06</span><h2>The Marketplace Problem</h2></div>
+      <div class="marketplace-loop" aria-label="More users and more merchants reinforce each other">
+        <strong>MORE USERS</strong><span aria-hidden="true">↔</span><strong>MORE MERCHANTS</strong>
+      </div>
+      <div class="side-by-side">
+        <div class="side-panel"><h3>MERCHANT ASKS</h3><p>“Are there enough users?”</p></div>
+        <div class="side-panel"><h3>USER ASKS</h3><p>“Are there enough useful offers?”</p></div>
+      </div>
+      <p>If there are few merchants, users have fewer reasons to use the platform. If there are few users, merchants have less reason to maintain offers. Both sides need value for the product to work.</p>
+    </section>
+
+    <section id="accuracy" class="case-study-section">
+      <div class="section-header"><span class="section-number">07</span><h2>Offer Accuracy: The Operational Problem</h2></div>
+      <p>Keeping listings accurate could require merchants to update quantities, prices, availability, and sold-out status throughout the day.</p>
+      <div class="accuracy-flow" aria-label="Five portions are prepared, two are sold, leaving three">
+        <div class="accuracy-step">5 mandi available<span>Initially published</span></div>
+        <div class="accuracy-step">2 sold<span>Availability changes</span></div>
+        <div class="accuracy-step">3 remaining<span>Current quantity</span></div>
+      </div>
+      <div class="stale-offer"><strong>PLATFORM MAY STILL SHOW: 5 AVAILABLE</strong><p>A customer could travel to the business and discover the offer is already finished.</p></div>
+      <p>Small businesses may not want to repeatedly open an app and update a few remaining portions. They may prefer to offer a small discount directly to customers instead. The product question therefore became how to provide timely, trustworthy information without adding excessive merchant work.</p>
+    </section>
+
+    <section id="mvp-limitation" class="case-study-section">
+      <div class="section-header"><span class="section-number">08</span><h2>Why I Didn't Run a Live MVP</h2></div>
+      <div class="mvp-block"><h3>PROJECT LIMITATION</h3><p>Some merchants were willing to provide offers, but I did not have an established local user base or enough contacts to distribute offers and measure actual customer visits reliably.</p></div>
+      <p>Without that distribution, I could not test the full path from merchant offer to user discovery, business visit, and merchant-measured result. I did not claim MVP validation without conducting that test.</p>
+      <div class="recognition"><div class="recognition-mark" aria-hidden="true">YIP</div><p><strong>College innovation program recognition</strong><br>Presented the idea through YIP, received first prize, a cash prize, and a certificate.<br><span class="case-study-note">Recognition of the idea and presentation, not proof of market demand, usage, or willingness to pay.</span></p></div>
+    </section>
+
+    <section id="scope" class="case-study-section">
+      <div class="section-header"><span class="section-number">09</span><h2>Scope Decision &amp; Feedback</h2></div>
+      <div class="two-column">
+        <div class="case-study-highlight"><span class="label">INITIAL PRODUCT SCOPE</span><h3>Food offers</h3><p>The initial product remained focused on food.</p></div>
+        <div class="case-study-highlight"><span class="label">FUTURE EXPANSION HYPOTHESIS</span><h3>Budget-friendly stays</h3><p>Teachers and lecturers suggested accommodation as a possible future category for travellers and small providers. It was not part of the initial product.</p></div>
+      </div>
+      <p>First understand whether the food-offer marketplace can work before expanding into another category.</p>
+    </section>
+
+    <section id="learning" class="case-study-section">
+      <div class="section-header"><span class="section-number">10</span><h2>What I Actually Learned</h2></div>
+      <div class="two-column fact-validation">
+        <div>
+          <h3>OBSERVATIONS &amp; FEEDBACK</h3>
+          <ul>
+            <li>Social media discovery can be difficult when content is old or hard to find.</li>
+            <li>Location, navigation, and whether a business is open matter beyond finding an offer.</li>
+            <li>Merchant motivations varied: customer acquisition, promotion, or remaining food.</li>
+            <li>Some businesses may not want additional operational work.</li>
+            <li>Users and merchants each need enough value for a marketplace to work.</li>
+          </ul>
+        </div>
+        <div>
+          <h3>WHAT STILL NEEDS VALIDATION</h3>
+          <ul>
+            <li>Whether students would use it, and how often.</li>
+            <li>Whether users would travel for offers and what information they need first.</li>
+            <li>Which offers merchants can provide and how often they can update them.</li>
+            <li>How many users and merchants are needed for useful local coverage.</li>
+            <li>Whether merchants would participate consistently or pay after measurable value.</li>
+            <li>How offers should expire and how sold-out offers can stay trustworthy.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="evolution" class="case-study-section">
+      <div class="section-header"><span class="section-number">11</span><h2>How My Thinking Changed</h2></div>
+      <div class="thinking-evolution" aria-label="Product thinking evolution">
+        <div class="evolution-step"><span class="step-label">PERSONAL EXPERIENCE</span><p>I couldn't easily find a useful current food offer near me.</p></div><div class="evolution-arrow" aria-hidden="true">↓</div>
+        <div class="evolution-step"><span class="step-label">INITIAL FOOD-OFFER IDEA</span><p>Create a location-based platform for nearby offers.</p></div><div class="evolution-arrow" aria-hidden="true">↓</div>
+        <div class="evolution-step"><span class="step-label">USER + MERCHANT DISCOVERY</span><p>The problem involves both people looking for offers and businesses supplying them.</p></div><div class="evolution-arrow" aria-hidden="true">↓</div>
+        <div class="evolution-step"><span class="step-label">MERCHANT NEEDS DIFFER</span><p>Businesses may seek customers, promotion, or help with remaining food.</p></div><div class="evolution-arrow" aria-hidden="true">↓</div>
+        <div class="evolution-step"><span class="step-label">TWO-SIDED MARKETPLACE REALITY</span><p>Users need useful offers; merchants need users.</p></div><div class="evolution-arrow" aria-hidden="true">↓</div>
+        <div class="evolution-step"><span class="step-label">OFFER ACCURACY PROBLEM</span><p>Stale availability can damage trust, while frequent updates add merchant effort.</p></div><div class="evolution-arrow" aria-hidden="true">↓</div>
+        <div class="evolution-step"><span class="step-label">MVP VALIDATION GAP</span><p>No local user base was available to distribute offers and measure visits.</p></div><div class="evolution-arrow" aria-hidden="true">↓</div>
+        <div class="evolution-step"><span class="step-label">FUTURE MVP DIRECTION</span><p>Test a small local marketplace manually before investing in a larger product.</p></div>
+      </div>
+    </section>
+
+    <section id="validation" class="case-study-section">
+      <div class="section-header"><span class="section-number">12</span><h2>Proposed Future MVP</h2></div>
+      <div class="mvp-block"><span class="label">PROPOSED FUTURE MVP · NOT YET EXECUTED</span>
+        <ol class="flow-list" aria-label="Proposed future MVP steps">
+          <li>Small number of merchants</li><li>Limited local user group</li><li>Real offers</li><li>User discovery</li><li>Business visit</li><li>Measure value</li><li>Merchant feedback</li>
+        </ol>
+      </div>
+      <p>The goal would be to understand whether the marketplace works before building a larger product.</p>
+      <h3 style="margin:1.5rem 0 0.35rem">Future validation metrics</h3>
+      <p class="case-study-note">Proposed measures, not results from this project.</p>
+      <div class="two-column fact-validation">
+        <div><h3>USER SIDE</h3><ul><li>Offer interest</li><li>Offer selection</li><li>Visit intent</li><li>Actual visits where measurable</li><li>Repeat interest</li><li>Preferred categories</li></ul></div>
+        <div><h3>MERCHANT SIDE</h3><ul><li>Merchant participation</li><li>Number and frequency of offers</li><li>Offer update behaviour</li><li>Customers attributed to the platform</li><li>Merchant satisfaction and continued participation</li><li>Willingness to pay</li></ul></div>
+      </div>
+    </section>
+
+    <section id="risks" class="case-study-section">
+      <div class="section-header"><span class="section-number">13</span><h2>Key Product Risks</h2></div>
+      <div class="risk-grid">
+        <article class="risk-card"><h3>Marketplace cold start</h3><p>Too few users can reduce merchant value; too few merchants can reduce user value.</p></article>
+        <article class="risk-card"><h3>Offer accuracy</h3><p>Outdated offers could damage user trust.</p></article>
+        <article class="risk-card"><h3>Merchant effort</h3><p>Frequent updates could become inconvenient.</p></article>
+        <article class="risk-card"><h3>Customer attribution</h3><p>Merchants need a way to understand whether customers came through the platform.</p></article>
+        <article class="risk-card"><h3>Willingness to pay</h3><p>Merchant interest does not automatically mean they will pay.</p></article>
+        <article class="risk-card"><h3>User behaviour</h3><p>Users may browse offers but choose familiar or nearby restaurants.</p></article>
+        <article class="risk-card"><h3>Limited-stock offers</h3><p>Availability can change quickly, creating a mismatch between platform information and reality.</p></article>
+      </div>
+    </section>
+
+    <section id="hypothesis" class="case-study-section">
+      <div class="section-header"><span class="section-number">14</span><h2>Final Product Hypothesis</h2></div>
+      <div class="final-hypothesis"><blockquote>“There may be an opportunity for a location-based food-offer platform that helps students and young people discover relevant nearby offers while giving food businesses a way to attract customers or promote available offers.”</blockquote><p>This remains a hypothesis.</p></div>
+      <p class="case-study-note">The central unanswered question is whether the marketplace can keep enough useful offers accurate while creating enough value for merchants to participate and eventually pay.</p>
+    </section>
+
+    <section id="takeaway" class="case-study-section final-takeaway">
+      <div class="section-header"><span class="section-number">PM</span><h2>Final Product Thinking Takeaway</h2></div>
+      <p>The project shifted from a simple discovery interface toward a question about user value, merchant value, information accuracy, and marketplace participation.</p>
+      <div class="question-pair">
+        <div class="question-block"><span class="label">INITIAL QUESTION</span><p>“How can I help people find food offers?”</p></div>
+        <div class="question-block accent-block"><span class="label">REFINED QUESTION</span><p>“Can I create a marketplace where users can reliably discover useful nearby offers while merchants can participate without excessive operational effort—and eventually see enough value to pay?”</p></div>
+      </div>
+    </section>
   </div>
+
   <nav class="case-study-pager" aria-label="Case study navigation">
+    <a href="../../index.html#case-studies"><span>← Back to Case Studies</span></a>
     <a href="../job-finder/"><span>Previous Case Study</span>← Job Finder</a>
+    <span class="case-study-pager-current" aria-disabled="true"><span>Next Case Study</span>Latest case study</span>
   </nav>
 </main>
 <footer><p>Muhammed Shan © 2026</p></footer>
